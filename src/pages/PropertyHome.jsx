@@ -1,46 +1,30 @@
 import { useParams } from "react-router-dom";
-import {
-  Home,
-  CheckCircle,
-  Wifi,
-  Sofa,
-  MapPin,
-  Bus,
-  Info,
-  Map,
-  Utensils,
-  Book,
-  HelpCircle,
-  AlertTriangle,
-  Briefcase,
-  Star,
-  Phone,
-} from "lucide-react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const menuItems = [
-  { label: "Welcome", icon: <Home />, path: "welcome" },
-  { label: "Check-in/out", icon: <CheckCircle />, path: "check-in-out" },
-  { label: "WiFi", icon: <Wifi />, path: "wifi" },
-  { label: "Amenities", icon: <Sofa />, path: "amenities" },
-  { label: "Location", icon: <MapPin />, path: "location" },
-  { label: "Transport", icon: <Bus />, path: "transportation" },
-  { label: "Infos", icon: <Info />, path: "informations" },
-  { label: "Things to do", icon: <Map />, path: "things-to-do" },
-  { label: "Places to eat", icon: <Utensils />, path: "places-to-eat" },
-  { label: "Rules", icon: <Book />, path: "rules" },
-  { label: "FAQ", icon: <HelpCircle />, path: "faq" },
-  { label: "Emergency", icon: <AlertTriangle />, path: "emergency" },
-  { label: "Before you go", icon: <Briefcase />, path: "before-you-go" },
-  { label: "Review", icon: <Star />, path: "review" },
-  { label: "Contact", icon: <Phone />, path: "contact" },
+  { label: "Welcome", icon: "fa-house", path: "welcome" },
+  { label: "Check-in/out", icon: "fa-house-circle-check", path: "check-in-out" },
+  { label: "WiFi", icon: "fa-wifi", path: "wifi" },
+  { label: "Amenities", icon: "fa-couch", path: "amenities" },
+  { label: "Location", icon: "fa-location-dot", path: "location" },
+  { label: "Transport", icon: "fa-bus", path: "transportation" },
+  { label: "Infos", icon: "fa-circle-info", path: "informations" },
+  { label: "Things to do", icon: "fa-map", path: "things-to-do" },
+  { label: "Places to eat", icon: "fa-utensils", path: "places-to-eat" },
+  { label: "Rules", icon: "fa-book", path: "rules" },
+  { label: "FAQ", icon: "fa-circle-question", path: "faq" },
+  { label: "Emergency", icon: "fa-triangle-exclamation", path: "emergency" },
+  { label: "Before you go", icon: "fa-suitcase-rolling", path: "before-you-go" },
+  { label: "Review", icon: "fa-star", path: "review" },
+  { label: "Contact", icon: "fa-phone", path: "contact" },
 ];
 
 export default function PropertyHome() {
   const { slug } = useParams();
 
   return (
-    <div className="p-6">
-      {/* Header Section */}
+    <div className="px-4 sm:px-6 py-6">
+      {/* Header */}
       <div className="grid grid-cols-3 gap-4 items-center mb-6">
         <div className="flex justify-center">
           <img src="/assets/images/logo.png" alt="Logo" className="h-16" />
@@ -54,19 +38,21 @@ export default function PropertyHome() {
         </div>
       </div>
 
-      {/* Menu Grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 mt-6">
-        {menuItems.map((item) => (
-          <a
-            key={item.path}
-            href={`/${slug}/${item.path}`}
+      {/* Menu */}
+      <div id="homegrid" className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6">
+        {menuItems.map(({ icon, label, path }) => (
+          <div
+            key={path}
             className="flex flex-col items-center text-gray-700 text-xs"
           >
-            <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-[#dce6e8] transition">
-              <div className="text-[#55818e] text-3xl">{item.icon}</div>
-            </div>
-            <p className="mt-2 text-[13px] text-center">{item.label}</p>
-          </a>
+            <a
+              href={`/${slug}/${path}`}
+              className="bg-[#dce6e8] flex items-center justify-center"
+            >
+              <i className={`fa-solid ${icon} text-[#55818e] `}></i>
+            </a>
+            <p className="text-[13px] text-center">{label}</p>
+          </div>
         ))}
       </div>
     </div>

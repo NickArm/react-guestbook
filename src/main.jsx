@@ -8,6 +8,7 @@ import PropertyHome from "./pages/PropertyHome.jsx";
 import WifiPage from "./pages/WifiPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import EmergencyPage from "./pages/EmergencyPage.jsx";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(

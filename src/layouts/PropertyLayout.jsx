@@ -61,9 +61,9 @@ export default function PropertyLayout() {
       <BottomNavBar />
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-center text-sm p-4 text-gray-600">
+      {/* <footer className="bg-gray-100 text-center text-sm p-4 text-gray-600">
         &copy; {new Date().getFullYear()} MyGuide App – {slug}
-      </footer>
+      </footer> */}
 
 
     </div>

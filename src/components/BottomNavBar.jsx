@@ -1,18 +1,17 @@
 import { NavLink, useParams } from "react-router-dom";
-import { Home, Wifi, Phone, AlertCircle } from "lucide-react";
+import { Home, Phone, AlertCircle } from "lucide-react";
 
 export default function BottomNavBar() {
   const { slug } = useParams();
 
   const navItems = [
     { label: "Home", icon: <Home size={20} />, to: `/${slug}` },
-    { label: "WiFi", icon: <Wifi size={20} />, to: `/${slug}/wifi` },
     { label: "Contact", icon: <Phone size={20} />, to: `/${slug}/contact` },
     { label: "Emergency", icon: <AlertCircle size={20} />, to: `/${slug}/emergency` },
   ];
 
   return (
-    <nav className="bottom-0 left-0 right-0 bg-white border-t shadow z-50 flex justify-around py-2 sm:hidden">
+    <nav className="bottom-0 bg-[#55818e] text-white shadow z-50 flex justify-around py-2 sm:hidden">
       {navItems.map((item) => (
         <NavLink
           key={item.to}
@@ -30,3 +29,5 @@ export default function BottomNavBar() {
     </nav>
   );
 }
+
+
