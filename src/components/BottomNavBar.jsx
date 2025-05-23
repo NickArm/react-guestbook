@@ -1,33 +1,26 @@
 import { NavLink, useParams } from "react-router-dom";
-import { Home, Phone, AlertCircle } from "lucide-react";
 
 export default function BottomNavBar() {
   const { slug } = useParams();
 
   const navItems = [
-    { label: "Home", icon: <Home size={20} />, to: `/${slug}` },
-    { label: "Contact", icon: <Phone size={20} />, to: `/${slug}/contact` },
-    { label: "Emergency", icon: <AlertCircle size={20} />, to: `/${slug}/emergency` },
+    { label: "Home", iconClass: "fa-solid fa-house", to: `/${slug}` },
+    { label: "Contact", iconClass: "fa-solid fa-phone", to: `/${slug}/contact` },
+    { label: "Emergency", iconClass: "fa-solid fa-triangle-exclamation", to: `/${slug}/emergency` },
   ];
 
   return (
-    <nav className="bottom-0 bg-[#55818e] text-white shadow z-50 flex justify-around py-2 sm:hidden">
+    <nav className=" bottom-0 left-0 right-0 bg-[#55818e] z-50 flex justify-around py-2 sm:hidden">
       {navItems.map((item) => (
         <NavLink
           key={item.to}
           to={item.to}
-          className={({ isActive }) =>
-            `flex flex-col items-center text-xs ${
-              isActive ? "text-sky-600" : "text-gray-500"
-            }`
-          }
+          className="flex flex-col items-center text-xs no-underline"
         >
-          {item.icon}
-          <span>{item.label}</span>
+          <i className={`${item.iconClass}`}></i>
+          {/* <span className="mt-1">{item.label}</span> */}
         </NavLink>
       ))}
     </nav>
   );
 }
-
-

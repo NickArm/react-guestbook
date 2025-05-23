@@ -27,7 +27,7 @@ export default function PropertyHome() {
       {/* Header */}
       <div className="grid grid-cols-3 gap-4 items-center mb-6">
         <div className="flex justify-center">
-          <img src="/assets/images/logo.png" alt="Logo" className="h-16" />
+          <img src="/assets/images/lias_logo.png" alt="Logo" className="mainlogo h-16" />
         </div>
         <div className="col-span-2 text-left">
           <h2 className="text-[#55818e] text-xl font-light">WELCOME</h2>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -37,6 +37,10 @@ main {
   padding: 1rem;
 }
 
+.mainlogo{
+  max-width: 115px;
+}
+
 #homegrid{
   a{
     font-size: 24px;
@@ -47,10 +51,38 @@ main {
   i::before{display: inline-block;}
 }
 
+.check-in-page {
+  .rules{
+    padding:2rem;
+    margin-top: 1rem;
+  }
+  .time{
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+  }
+  svg{
+    font-size: 40px;
+    padding: 15px;
+  }
+}
+.wifipage{
+  svg{
+    font-size: 40px;
+    padding: 15px;
+  }
+}
+
+header{ 
+  padding: 0 40px;
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.2;
+  color:#fff;
 }
 
 button {
@@ -79,6 +111,10 @@ nav{
   display: flex;
   justify-content: space-between;
   color: #fff;
+  i, span{
+    color: #fff;
+    font-size: 28px;
+    }
 }
 
 @media (prefers-color-scheme: light) {

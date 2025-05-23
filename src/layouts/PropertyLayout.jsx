@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
+import { PropertyProvider } from "../context/PropertyContext";
 import { Menu } from "lucide-react";
 
+import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 
 export default function PropertyLayout() {
@@ -18,20 +20,13 @@ export default function PropertyLayout() {
   ];
 
   return (
+    <PropertyProvider>
     <div className="min-h-screen flex flex-col pb-14">
       {/* Header */}
       {!isHome && (
-      <header className="bg-sky-700 text-white p-4 flex justify-between items-center shadow">
-        <h1 className="text-lg font-semibold">Welcome to {slug}</h1>
-        {/* Mobile Menu Toggle */}
-        <button
-          className="sm:hidden"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          <Menu size={24} />
-        </button>
-      </header>
+        <PropertyHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} navItems={navItems} />
       )}
+
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
@@ -67,5 +62,6 @@ export default function PropertyLayout() {
 
 
     </div>
+    </PropertyProvider>
   );
 }

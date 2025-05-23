@@ -5,9 +5,15 @@ import App from "./App.jsx";
 import "./index.css";
 import PropertyLayout from "./layouts/PropertyLayout.jsx";
 import PropertyHome from "./pages/PropertyHome.jsx";
+import WelcomePage from "./pages/WelcomePage.jsx";
 import WifiPage from "./pages/WifiPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
+import AmenitiesPage from "./pages/AmenitiesPage.jsx";
+import LocationPage from "./pages/LocationPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx"
+import RulesPage from "./pages/RulesPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
+import CheckInPage from "./pages/CheckInPage.jsx";
+import TailwindTest from "./pages/TailwindTest.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
@@ -19,9 +25,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <Route path="/:slug" element={<PropertyLayout />}>
           <Route index element={<PropertyHome />} />
+          <Route path="welcome" element={<WelcomePage />} />
+          <Route path="check-in-out" element={<CheckInPage />} />
+          <Route path="amenities" element={<AmenitiesPage />} />
           <Route path="wifi" element={<WifiPage />} />
+          <Route path="location" element={<LocationPage />} />
+          <Route path="rules" element={<RulesPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
+          <Route path="tailwindtest" element={<TailwindTest />} />
         </Route>
       </Routes>
     </BrowserRouter>
