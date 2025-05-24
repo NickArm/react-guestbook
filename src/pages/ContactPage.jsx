@@ -10,14 +10,14 @@ export default function ContactPage() {
   const owner = property.owners[0];
   console.log(owner);
   return (
-    <div className="px-6 py-6 text-gray-800">
+    <div className="contact-page">
       {/* Header */}
       <h2 className="text-xl italic text-center">Let’s keep in touch!</h2>
       <div className="mt-4 flex justify-center">
         <img
-          src={owner.photo}
+          src={owner.photo || "/assets/images/user-image.jpeg"}
           alt={owner.name}
-          className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+          className="rounded-full object-cover border-4 border-white shadow-md"
         />
       </div>
 
@@ -28,9 +28,9 @@ export default function ContactPage() {
       </div>
 
       {/* Contacts */}
-      <div className="mt-6 space-y-3">
+      <div className="contact-items">
         {owner.contacts.map((contact, i) => (
-          <div key={i} className="flex items-center gap-3">
+          <div key={i} className="flex items-center contact-item">
             {contact.url ? (
               <a
                 href={contact.url}

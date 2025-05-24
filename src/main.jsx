@@ -11,6 +11,8 @@ import AmenitiesPage from "./pages/AmenitiesPage.jsx";
 import LocationPage from "./pages/LocationPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx"
 import RulesPage from "./pages/RulesPage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import BeforeYouGoPage from "./pages/BeforeYouGoPage.jsx";
 import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
@@ -33,7 +35,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="location" element={<LocationPage />} />
           <Route path="rules" element={<RulesPage />} />
           <Route path="faq" element={<FaqPage />} />
+          <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="before-you-go" element={<BeforeYouGoPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
           <Route path="tailwindtest" element={<TailwindTest />} />
         </Route>

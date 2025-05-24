@@ -10,10 +10,10 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
   return (
     <>
       <header className="bg-[#55818e] text-white flex justify-between items-center shadow px-4 py-2">
-        <button className="sm:hidden" onClick={() => setMenuOpen((prev) => !prev)}>
+        <button className="mobile-menu-button" onClick={() => setMenuOpen((prev) => !prev)}>
           <Menu size={24} />
         </button>
-        <h1 className="text-lg font-semibold">{currentLabel}</h1>
+        <h1 className="header-title">{currentLabel}</h1>
       </header>
 
       {menuOpen && (
@@ -34,6 +34,7 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
           ))}
         </div>
       )}
+
     </>
   );
 }

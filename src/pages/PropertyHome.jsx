@@ -1,24 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useProperty } from "../context/PropertyContext"; // Assuming this exists
+import { useProperty } from "../context/PropertyContext"; 
+import { getEnabledMenuItems } from "../config/menuConfig";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-const menuItems = [
-  { label: "Welcome", icon: "fa-house", path: "welcome" },
-  { label: "Check-in/out", icon: "fa-house-circle-check", path: "check-in-out" },
-  { label: "WiFi", icon: "fa-wifi", path: "wifi" },
-  { label: "Amenities", icon: "fa-couch", path: "amenities" },
-  { label: "Location", icon: "fa-location-dot", path: "location" },
-  { label: "Transport", icon: "fa-bus", path: "transportation" },
-  { label: "Infos", icon: "fa-circle-info", path: "informations" },
-  { label: "Things to do", icon: "fa-map", path: "things-to-do" },
-  { label: "Places to eat", icon: "fa-utensils", path: "places-to-eat" },
-  { label: "Rules", icon: "fa-book", path: "rules" },
-  { label: "FAQ", icon: "fa-circle-question", path: "faq" },
-  { label: "Emergency", icon: "fa-triangle-exclamation", path: "emergency" },
-  { label: "Before you go", icon: "fa-suitcase-rolling", path: "before-you-go" },
-  { label: "Review", icon: "fa-star", path: "review" },
-  { label: "Contact", icon: "fa-phone", path: "contact" },
-];
 
 const requiredPages = ["welcome", "check-in-out", "location"];
 
@@ -29,6 +12,10 @@ export default function PropertyHome() {
   if (!property) {
     return <p className="text-center text-gray-500 mt-10">Loading...</p>;
   }
+
+  const menuItems = getEnabledMenuItems([
+    ...new Set([...(property.enabled_pages || []), ...requiredPages]),
+  ]);
 
   const enabled = [...new Set([...(property.enabled_pages || []), ...requiredPages])];
 

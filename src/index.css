@@ -50,6 +50,10 @@ main {
   i::before{display: inline-block;}
 }
 
+.welcome-page{
+  padding: 2rem;
+}
+
 .check-in-page {
   .rules{
     padding:2rem;
@@ -85,6 +89,29 @@ main {
   }
 }
 
+.blog-page{
+  padding: 1rem;
+  .blog-title{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color:#213547;
+  }
+  .blog-item{
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #f3f4f6;
+    display: flex;
+    gap: 15px;
+  }
+
+  img{
+    width: 150px;
+    height: 280px;
+  }
+}
+
 .rules-page {
   .rules-item{
     padding: 1rem;
@@ -106,8 +133,44 @@ main {
   }
 }
 
+.before-page{
+  padding: 1rem;
+  .before-item{
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #f3f4f6;
+    display: flex;
+    gap: 15px;
+  }
+}
+.amenities-page{
+  padding: 1rem;
+}
+
+.contact-page{
+  padding: 1rem;
+  img{
+    width: 80px;
+  }
+  .contact-item{
+    padding: 0rem 1rem;
+    margin: 0.5rem;
+    background-color: #f3f4f6;
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.location-page{
+  padding: 1rem;
+}
+
 header{ 
   padding: 0 40px;
+}
+
+.header-title{
+  font-weight: 500;
 }
 
 h1 {
@@ -115,6 +178,13 @@ h1 {
   font-weight: 600;
   line-height: 1.2;
   color:#fff;
+}
+
+.mobile-menu-button{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
 }
 
 button {

@@ -8,15 +8,15 @@ export default function AmenitiesPage() {
   }
 
   return (
-    <div className="px-6 text-gray-800 mt-6">
+    <div className="amenities-page">
+      <div className="mt-6">
+        <img src="/assets/images/default-image.jpg" className="w-full" alt="Living room" />
+      </div>
+
       <div
         className="prose prose-sm max-w-none"
         dangerouslySetInnerHTML={{ __html: property.amenities_description }}
       />
-
-      <div className="mt-6">
-        <img src="/assets/images/living.jpeg" className="w-full" alt="Living room" />
-      </div>
     </div>
   );
 }

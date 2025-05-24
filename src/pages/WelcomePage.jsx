@@ -10,13 +10,11 @@ export default function WelcomePage() {
   const owner = property.owner?.[0];
 
   return (
-    <div className="welcome-page px-4 py-6 text-gray-700 text-sm">
-      {/* Hero Image */}
+    <div className="welcome-page">
       <div className="mt-4">
-        <img src="/assets/images/living.jpeg" alt="Living room" className="w-full rounded-lg" />
+        <img src="/assets/images/default-image.jpg" alt="welcome-photo" className="w-full rounded-lg" />
       </div>
 
-      {/* Welcome Section */}
       <div className="mt-4 max-w-md mx-auto">
         <div className="flex items-center justify-between gap-4">
           <p className="text-lg font-semibold">

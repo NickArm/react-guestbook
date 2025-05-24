@@ -9,7 +9,7 @@ export default function LocationPage() {
   }
 
   return (
-    <div className="px-6 py-6 text-gray-800">
+    <div className="location-page">
       {/* Address Section */}
       <div className="text-center">
         <FaLocationDot className="text-3xl text-gray-800 mx-auto" />

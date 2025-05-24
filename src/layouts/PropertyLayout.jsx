@@ -1,67 +1,57 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
-import { PropertyProvider } from "../context/PropertyContext";
-import { Menu } from "lucide-react";
-
+import { PropertyProvider, useProperty } from "../context/PropertyContext";
+import { getEnabledMenuItems } from "../config/menuConfig";
 import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 
-export default function PropertyLayout() {
+function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
   const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const property = useProperty();
 
   const isHome = location.pathname === `/${slug}` || location.pathname === `/${slug}/`;
 
-  const navItems = [
-    { label: "WiFi", to: `/${slug}/wifi` },
-    { label: "Contact", to: `/${slug}/contact` },
-    { label: "Emergency", to: `/${slug}/emergency` },
-  ];
+  useEffect(() => {
+    if (property?.name) {
+      document.title = property.name;
+    }
+  }, [property]);
+
+  const filteredNavItems = useMemo(() => {
+    if (!property?.enabled_pages) return [];
+    return getEnabledMenuItems(property.enabled_pages).map((item) => ({
+      to: `/${slug}/${item.path}`,
+      label: item.label,
+      icon: item.icon,
+    }));
+  }, [property, slug]);
 
   return (
-    <PropertyProvider>
     <div className="min-h-screen flex flex-col pb-14">
-      {/* Header */}
       {!isHome && (
-        <PropertyHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} navItems={navItems} />
+        <PropertyHeader
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          navItems={filteredNavItems}
+        />
       )}
 
-
-      {/* Mobile Menu Dropdown */}
-      {menuOpen && (
-        <div className="bg-white border-b shadow-sm sm:hidden">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              onClick={() => setMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-4 py-2 text-sm ${
-                  isActive ? "text-sky-600 font-medium" : "text-gray-600"
-                }`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-      )}
-
-      {/* Main content */}
       <main className="flex-1">
         <Outlet />
       </main>
 
       <BottomNavBar />
-
-      {/* Footer */}
-      {/* <footer className="bg-gray-100 text-center text-sm p-4 text-gray-600">
-        &copy; {new Date().getFullYear()} MyGuide App – {slug}
-      </footer> */}
-
-
     </div>
+  );
+}
+
+export default function PropertyLayout() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <PropertyProvider>
+      <LayoutContent menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </PropertyProvider>
   );
 }
