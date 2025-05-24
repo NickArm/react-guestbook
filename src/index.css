@@ -34,7 +34,6 @@ body {
 
 main {
   flex: 1;
-  padding: 1rem;
 }
 
 .mainlogo{
@@ -45,7 +44,7 @@ main {
   a{
     font-size: 24px;
     padding: 24px;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   i::before{display: inline-block;}
@@ -71,6 +70,39 @@ main {
   svg{
     font-size: 40px;
     padding: 15px;
+  }
+}
+
+.faq-page {
+  .faq{
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+  .faq-item{
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #f3f4f6;
+  }
+}
+
+.rules-page {
+  .rules-item{
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #f3f4f6;
+    gap: 25px;
+  }
+  .rule-counter {
+    background: #55818e;
+    color: #f3f4f6;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    font-size: 1rem;
   }
 }
 

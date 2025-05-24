@@ -10,7 +10,8 @@ import WifiPage from "./pages/WifiPage.jsx";
 import AmenitiesPage from "./pages/AmenitiesPage.jsx";
 import LocationPage from "./pages/LocationPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx"
-import RulesPage from "./pages/RulesPage.jsx";;
+import RulesPage from "./pages/RulesPage.jsx";
+import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
 import TailwindTest from "./pages/TailwindTest.jsx";
@@ -31,6 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="wifi" element={<WifiPage />} />
           <Route path="location" element={<LocationPage />} />
           <Route path="rules" element={<RulesPage />} />
+          <Route path="faq" element={<FaqPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
           <Route path="tailwindtest" element={<TailwindTest />} />

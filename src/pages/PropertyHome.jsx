@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useProperty } from "../context/PropertyContext"; // Assuming this exists
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const menuItems = [
@@ -19,8 +20,17 @@ const menuItems = [
   { label: "Contact", icon: "fa-phone", path: "contact" },
 ];
 
+const requiredPages = ["welcome", "check-in-out", "location"];
+
 export default function PropertyHome() {
   const { slug } = useParams();
+  const property = useProperty();
+
+  if (!property) {
+    return <p className="text-center text-gray-500 mt-10">Loading...</p>;
+  }
+
+  const enabled = [...new Set([...(property.enabled_pages || []), ...requiredPages])];
 
   return (
     <div className="px-4 sm:px-6 py-6">
@@ -40,20 +50,22 @@ export default function PropertyHome() {
 
       {/* Menu */}
       <div id="homegrid" className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6">
-        {menuItems.map(({ icon, label, path }) => (
-          <div
-            key={path}
-            className="flex flex-col items-center text-gray-700 text-xs"
-          >
-            <a
-              href={`/${slug}/${path}`}
-              className="bg-[#dce6e8] flex items-center justify-center"
+        {menuItems
+          .filter(({ path }) => enabled.includes(path))
+          .map(({ icon, label, path }) => (
+            <div
+              key={path}
+              className="flex flex-col items-center text-gray-700 text-xs"
             >
-              <i className={`fa-solid ${icon} text-[#55818e] `}></i>
-            </a>
-            <p className="text-[13px] text-center">{label}</p>
-          </div>
-        ))}
+              <a
+                href={`/${slug}/${path}`}
+                className="bg-[#dce6e8] flex items-center justify-center w-16 h-16 rounded-lg"
+              >
+                <i className={`fa-solid ${icon} text-[#55818e] text-2xl`}></i>
+              </a>
+              <p className="text-[13px] text-center mt-2">{label}</p>
+            </div>
+          ))}
       </div>
     </div>
   );
