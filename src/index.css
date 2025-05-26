@@ -50,6 +50,21 @@ main {
   i::before{display: inline-block;}
 }
 
+.top-bar-menu{
+  padding-top: 10px;
+    gap: 8px;
+  .nav-item{
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #dce6e8;
+  
+  }
+  i::before{
+    display: inline-block;
+  }
+}
+
 .welcome-page{
   padding: 2rem;
 }

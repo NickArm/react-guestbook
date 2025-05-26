@@ -4,6 +4,7 @@ import { PropertyProvider, useProperty } from "../context/PropertyContext";
 import { getEnabledMenuItems } from "../config/menuConfig";
 import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
+import TopIconMenu from "../components/TopIconMenu";
 
 function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
@@ -29,14 +30,16 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
 
   return (
     <div className="min-h-screen flex flex-col pb-14">
-      {!isHome && (
-        <PropertyHeader
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-          navItems={filteredNavItems}
-        />
+     {!isHome && (
+        <>
+          <PropertyHeader
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+            navItems={filteredNavItems}
+          />
+          <TopIconMenu />
+        </>
       )}
-
       <main className="flex-1">
         <Outlet />
       </main>
