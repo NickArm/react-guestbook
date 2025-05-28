@@ -3,7 +3,6 @@ import { useProperty } from "../context/PropertyContext";
 import { getEnabledMenuItems } from "../config/menuConfig";
 
 export default function TopIconMenu() {
-  const { slug } = useParams();
   const property = useProperty();
 
   if (!property?.enabled_pages) return null;
@@ -15,7 +14,7 @@ export default function TopIconMenu() {
       {menuItems.map(({ path, icon, label }) => (
         <NavLink
           key={path}
-          to={`/${slug}/${path}`}
+          to={`/${path}`}
           className={({ isActive }) =>
             `nav-item flex items-center justify-center rounded-lg text-[#55818e] ${
               isActive ? "bg-[#dce6e8]" : ""

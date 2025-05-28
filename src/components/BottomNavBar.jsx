@@ -1,12 +1,11 @@
 import { NavLink, useParams } from "react-router-dom";
 
 export default function BottomNavBar() {
-  const { slug } = useParams();
 
   const navItems = [
-    { label: "Home", iconClass: "fa-solid fa-house", to: `/${slug}` },
-    { label: "Contact", iconClass: "fa-solid fa-phone", to: `/${slug}/contact` },
-    { label: "Emergency", iconClass: "fa-solid fa-triangle-exclamation", to: `/${slug}/emergency` },
+    { label: "Home", iconClass: "fa-solid fa-house", to: `/` },
+    { label: "Contact", iconClass: "fa-solid fa-phone", to: `/contact` },
+    { label: "Emergency", iconClass: "fa-solid fa-triangle-exclamation", to: `/emergency` },
   ];
 
   return (

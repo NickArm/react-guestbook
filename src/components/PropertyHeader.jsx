@@ -1,8 +1,9 @@
 import { Menu } from "lucide-react";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { getSubdomain } from "../utils/getSubdomain";
 
 export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
-  const { slug } = useParams();
+  const { slug } = getSubdomain();
   const location = useLocation();
 
   const currentLabel = navItems.find((item) => location.pathname === item.to)?.label || slug;

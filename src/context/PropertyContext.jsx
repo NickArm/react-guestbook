@@ -1,24 +1,35 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { getSubdomain } from "../utils/getSubdomain";
 
 const PropertyContext = createContext();
 
-export const useProperty = () => useContext(PropertyContext);
-
 export function PropertyProvider({ children }) {
-  const { slug } = useParams();
   const [property, setProperty] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  fetch(`http://localhost:3001/properties?slug=${slug}`)
-    .then(res => res.json())
-    .then(data => setProperty(data[0]))
-    .catch(console.error);
-}, [slug]);
+  useEffect(() => {
+    const slug = getSubdomain();
+    if (!slug) return;
+
+    fetch(`http://app.welcomy.net/api/property/${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProperty(data.property);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load property data", err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <PropertyContext.Provider value={property}>
-      {children}
+      {!loading ? children : <p className="text-center mt-10">Loading...</p>}
     </PropertyContext.Provider>
   );
+}
+
+export function useProperty() {
+  return useContext(PropertyContext);
 }

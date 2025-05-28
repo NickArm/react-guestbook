@@ -1,6 +1,7 @@
 import { useProperty } from "../context/PropertyContext";
 import { FaLocationDot } from "react-icons/fa6";
 
+
 export default function LocationPage() {
   const property = useProperty();
 

@@ -24,9 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-
-        <Route path="/:slug" element={<PropertyLayout />}>
+        <Route path="/" element={<PropertyLayout />}>
           <Route index element={<PropertyHome />} />
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="check-in-out" element={<CheckInPage />} />
