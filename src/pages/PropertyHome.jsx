@@ -17,11 +17,11 @@ export default function PropertyHome() {
   const menuItems = getEnabledMenuItems(enabledPages);
 
   return (
-    <div className="px-4 sm:px-6 py-6">
+    <div className="home-page px-4 sm:px-6 py-6">
       {/* Header */}
-      <div className="grid grid-cols-3 gap-4 items-center mb-6">
+      <div className="home-page-header grid grid-cols-3 gap-4 items-center mb-6">
         <div className="flex justify-center">
-          <img src="/assets/images/lias_logo.png" alt="Logo" className="mainlogo h-16" />
+          <img src="/assets/images/lias_logo.png" alt="Logo" className="h-26" />
         </div>
         <div className="col-span-2 text-left">
           <h2 className="text-[#55818e] text-xl font-light">WELCOME</h2>

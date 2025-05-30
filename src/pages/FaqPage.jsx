@@ -10,9 +10,9 @@ export default function FaqPage() {
   }
 
   return (
-    <div className="faq-page mt-6 text-gray-800 px-4">
+    <div>
       {/* Intro text */}
-      <div className="text-center text-xs italic px-2 mb-6">
+      <div className="mt-6 text-center px-6 text-gray-800 text-xs italic">
         <p>
           In case you had concerns, here are some frequently asked questions and
           answers to clear things up.
@@ -20,13 +20,13 @@ export default function FaqPage() {
       </div>
 
       {/* FAQ List */}
-      <div className="space-y-4">
-        {property.faq?.map((item, index) => (
-          <div key={index} className="faq-item">
-            <h3 className="faq-question font-bold">{item.question}</h3>
-            <p className="faq-answer text-sm mt-1">{item.answer}</p>
-          </div>
-        ))}
+      <div className="mt-6 space-y-4 px-4 text-gray-800">
+          {property.faq?.map((item, index) => (
+            <div key={index} className="bg-gray-100 rounded-lg p-4">
+              <h3 className="font-bold">{item.question}</h3>
+              <p className="text-sm mt-1">{item.answer}</p>
+            </div>
+          ))}  
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const allMenuItems = [
 ];
 
 export function getEnabledMenuItems(enabledPages = []) {
-  const requiredPages = ["welcome", "check-in-out", "location"];
+  const requiredPages = ["welcome", "check-in-out", "location", "blog"];
   const finalPages = [...new Set([...enabledPages, ...requiredPages])];
 
   return allMenuItems.filter((item) => finalPages.includes(item.path));

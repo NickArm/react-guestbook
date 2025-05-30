@@ -20,7 +20,8 @@
       "address": "Potamos, Corfu, 49100",
       "wifi": {
         "network": "liasapartment",
-        "password": "wifi password"
+        "password": "wifi password",
+        "description": "some text about wifi"
       },
       "checkin": "15:00",
       "checkin_instructions": "You will receive a code for the front door on the day of your arrival. Please contact me when you arrive so I can answer any questions about the property. ",

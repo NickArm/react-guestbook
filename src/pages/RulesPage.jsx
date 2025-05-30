@@ -10,18 +10,18 @@ export default function RulesPage() {
   }
 
   return (
-    <div className="rules-page mt-6 space-y-4 px-4 text-gray-800">
+    <div className="mt-6 space-y-4 px-4 text-gray-800">
       {property.rules?.map((rule, index) => (
         <div
           key={index}
-          className="rules-item p-2 flex items-center gap-4"
+          className="bg-gray-100 rounded-lg p-2 flex items-center gap-4"
         >
-          <div className="rule-counter flex items-center justify-center">
+          <div className="w-12 h-12 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">
             {index + 1}
           </div>
           <div>
-            <h3 className="rule-title">{rule.title}</h3>
-            <p className="rule-description">{rule.description}</p>
+            <h2 className="font-bold">{rule.title}</h2>
+            <p className="text-sm">{rule.description}</p>
           </div>
         </div>
       ))}

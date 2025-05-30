@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { PropertyProvider, useProperty } from "../context/PropertyContext";
 import { getEnabledMenuItems } from "../config/menuConfig";
+import { AnimatePresence, motion } from "framer-motion";
 import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 import TopIconMenu from "../components/TopIconMenu";
@@ -40,9 +41,18 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
           <TopIconMenu />
         </>
       )}
-      <main className="flex-1">
-        <Outlet />
-      </main>
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="flex-1"
+        >
+          <Outlet />
+        </motion.main>
+      </AnimatePresence>
 
       <BottomNavBar />
     </div>

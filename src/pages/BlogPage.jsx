@@ -51,11 +51,11 @@ export default function BlogPage() {
             key={post.id}
             className={`blog-item flex items-center ${isReversed ? "flex-row-reverse" : ""}`}
           >
-            <div className="flex-1">
+            <div className="bg-gray-100 p-4 flex-1">
               <h3 className="font-bold">
                 <a
                   href={link}
-                  className="blog-title"
+                  className="text-gray-800 hover:underline"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -67,7 +67,7 @@ export default function BlogPage() {
                 <img
                 src={image || "/assets/images/default-image.jpg"}
                 alt="Post thumbnail"
-                className="object-cover rounded shadow"
+                className="w-24 h-48 object-cover"
                 onError={(e) => (e.currentTarget.src = "/assets/images/default-image.jpg")}
                 />
           </div>

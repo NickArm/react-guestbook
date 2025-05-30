@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App.jsx";
 import "./index.css";
 import PropertyLayout from "./layouts/PropertyLayout.jsx";
 import PropertyHome from "./pages/PropertyHome.jsx";
@@ -16,7 +15,6 @@ import BeforeYouGoPage from "./pages/BeforeYouGoPage.jsx";
 import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
-import TailwindTest from "./pages/TailwindTest.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
@@ -37,9 +35,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="contact" element={<ContactPage />} />
           <Route path="before-you-go" element={<BeforeYouGoPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
-          <Route path="tailwindtest" element={<TailwindTest />} />
         </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
