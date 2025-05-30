@@ -1,16 +1,18 @@
 import { useState, useMemo, useEffect } from "react";
-import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
+import { useParams, useLocation, Outlet } from "react-router-dom";
 import { PropertyProvider, useProperty } from "../context/PropertyContext";
 import { getEnabledMenuItems } from "../config/menuConfig";
 import { AnimatePresence, motion } from "framer-motion";
 import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 import TopIconMenu from "../components/TopIconMenu";
+import { usePwaPrompt } from "../utils/usePwaPrompt"; // ✅ import hook
 
 function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
   const location = useLocation();
   const property = useProperty();
+  const { isPromptVisible, promptInstall } = usePwaPrompt(); // ✅ use the hook
 
   const isHome = location.pathname === `/${slug}` || location.pathname === `/${slug}/`;
 
@@ -31,7 +33,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
 
   return (
     <div className="min-h-screen flex flex-col pb-14">
-     {!isHome && (
+      {!isHome && (
         <>
           <PropertyHeader
             menuOpen={menuOpen}
@@ -41,6 +43,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
           <TopIconMenu />
         </>
       )}
+
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -55,6 +58,21 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
       </AnimatePresence>
 
       <BottomNavBar />
+
+      {/* ✅ PWA Prompt */}
+      {isPromptVisible && (
+        <div className="fixed bottom-4 right-4 bg-white border border-gray-300 shadow-lg px-4 py-3 rounded-lg z-50 max-w-[260px]">
+          <p className="text-sm text-gray-800">
+            Θέλετε να εγκαταστήσετε την εφαρμογή στο κινητό σας;
+          </p>
+          <button
+            onClick={promptInstall}
+            className="mt-2 px-3 py-1 bg-[#55818e] text-white text-sm rounded w-full"
+          >
+            Εγκατάσταση
+          </button>
+        </div>
+      )}
     </div>
   );
 }

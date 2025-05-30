@@ -15,7 +15,7 @@ export function PropertyProvider({ children }) {
       return;
     }
 
-    fetch(`http://app.welcomy.net/api/property/${slug}`)
+    fetch(`https://app.welcomy.net/api/property/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         setProperty(data.property);
