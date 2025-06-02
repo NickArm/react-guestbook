@@ -18,7 +18,7 @@ export default function CheckInPage() {
             {property.checkin_instructions}
           </p>
         </div>
-        <FaCircleCheck className="w-12 h-12 text-[#55818e]" />
+        <FaCircleCheck className="w-12 h-12 text-primary" />
       </div>
 
       {/* Check-out Section */}
@@ -30,7 +30,7 @@ export default function CheckInPage() {
            {property.checkout_instructions}
           </p>
         </div>
-        <FaPersonWalkingArrowRight className="w-12 h-12 text-[#55818e]" />
+        <FaPersonWalkingArrowRight className="w-12 h-12 text-primary" />
       </div>
     </div>
   );

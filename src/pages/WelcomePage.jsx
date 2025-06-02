@@ -47,7 +47,7 @@ export default function WelcomePage() {
       </div>
 
       {/* Welcome Message */}
-      <div className="mt-6 max-w-md mx-auto">
+      <div className="mt-2 p-4 max-w-md mx-auto">
         <div className="flex items-center justify-between gap-4">
           <p className="text-lg font-semibold">{property.welcome_title}</p>
           {owner?.photo && (

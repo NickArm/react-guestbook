@@ -26,7 +26,7 @@ export default function BeforeYouGoPage() {
         ))}
       </div>
 
-        <button className="w-full bg-[#55818e] text-[#fff] font-semibold text-sm flex items-center justify-between">
+        <button className="w-full bg-primary-color text-[#fff] font-semibold text-sm flex items-center justify-between">
           NEED LUGGAGE STORAGE?
           <FaLock />
         </button>

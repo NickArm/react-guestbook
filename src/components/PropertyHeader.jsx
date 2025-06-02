@@ -16,7 +16,7 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
 
   return (
     <>
-      <header className="bg-[#55818e] text-white flex justify-between items-center shadow px-4 py-2">
+      <header className="bg-primary text-white flex justify-between items-center shadow px-4 py-2">
         <button className="mobile-menu-button" onClick={() => setMenuOpen((prev) => !prev)}>
           <Menu size={24} />
         </button>

@@ -20,6 +20,9 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
     if (property?.name) {
       document.title = property.name;
     }
+    if (property?.settings?.primary_color) {
+      document.documentElement.style.setProperty('--primary-color', property.settings.primary_color);
+    }
   }, [property]);
 
   const filteredNavItems = useMemo(() => {

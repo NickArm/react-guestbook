@@ -34,7 +34,7 @@ return (
         children
       ) : (
         <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-          <h1 className="text-2xl font-bold text-[#55818e] mb-2">Oops!</h1>
+          <h1 className="text-2xl font-bold text-primary mb-2">Oops!</h1>
           <p className="text-gray-600 mb-4">
             Δεν εντοπίστηκε κάποιο κατάλυμα. Παρακαλώ ελέγξτε το URL (π.χ. <code>lias-apartment.welcomy.net</code>).
           </p>

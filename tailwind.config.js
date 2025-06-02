@@ -20,9 +20,15 @@ export default {
     "fa-suitcase-rolling",
     "fa-star",
     "fa-phone",
+    'text-primary',
+    'bg-primary',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--primary-color)',
+      },
+    },
   },
   plugins: [],
 };

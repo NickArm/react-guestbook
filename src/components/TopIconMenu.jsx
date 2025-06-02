@@ -18,7 +18,7 @@ export default function TopIconMenu() {
           key={path}
           to={`/${path}`}
           className={({ isActive }) =>
-            `nav-item flex items-center justify-center rounded-lg text-[#55818e] bg-[#dce6e8] w-8 h-8 rounded-lg${
+            `nav-item flex items-center justify-center rounded-lg text-primary bg-[#dce6e8] w-8 h-8 rounded-lg${
               isActive ? "bg-[#dce6e8]" : ""
             }`
           }

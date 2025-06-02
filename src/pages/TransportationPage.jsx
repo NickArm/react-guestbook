@@ -30,7 +30,7 @@ export default function TransportationPage() {
           <a
             target="_blank"
             href="https://vantasticorfu.gr/"
-            className="block w-full bg-[#55818e] text-white py-1 rounded-lg text-l shadow-md hover:bg-[#436b74] transition mt-2"
+            className="block w-full bg-primary text-white py-1 rounded-lg text-l shadow-md hover:bg-[#436b74] transition mt-2"
           >
             Contact our transfer partner
           </a>

@@ -28,7 +28,7 @@ export default function PropertyHome() {
             />
         </div>
         <div className="col-span-2 text-left">
-          <h2 className="text-[#55818e] text-xl font-light">WELCOME</h2>
+          <h2 className="text-primary text-xl font-light">WELCOME</h2>
           <p className="text-gray-500 text-sm">
             {property.name}<br />
             {property.location_area}, {property.location_country}
@@ -47,7 +47,7 @@ export default function PropertyHome() {
               href={`/${path}`}
               className="bg-[#dce6e8] flex items-center justify-center w-16 h-16 rounded-lg"
             >
-              <i className={`fa-solid ${icon} text-[#55818e] text-2xl`}></i>
+              <i className={`fa-solid ${icon} text-primary text-2xl`}></i>
             </a>
             <p className="text-[13px] text-center mt-2">{label}</p>
           </div>
