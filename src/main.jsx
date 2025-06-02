@@ -14,6 +14,7 @@ import BlogPage from "./pages/BlogPage.jsx";
 import BeforeYouGoPage from "./pages/BeforeYouGoPage.jsx";
 import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
+import TransportationPage from "./pages/TransportationPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="before-you-go" element={<BeforeYouGoPage />} />
+          <Route path="transportation" element={<TransportationPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
         </Route>
       </Routes>
