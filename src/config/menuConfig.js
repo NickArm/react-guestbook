@@ -1,4 +1,4 @@
-// src/config/menuConfig.js
+import { getSubdomain } from "../utils/getSubdomain";
 
 export const allMenuItems = [
   { label: "Welcome", path: "welcome", icon: "fa-house" },
@@ -18,8 +18,14 @@ export const allMenuItems = [
 ];
 
 export function getEnabledMenuItems(enabledPages = []) {
-  const requiredPages = ["welcome", "check-in-out", "location", "blog","contact",'emergency'];
+  const slug = getSubdomain();
+  const requiredPages = ["welcome", "check-in-out", "location", "blog", "contact", "emergency"];
   const finalPages = [...new Set([...enabledPages, ...requiredPages])];
 
-  return allMenuItems.filter((item) => finalPages.includes(item.path));
+  return allMenuItems
+    .filter((item) => finalPages.includes(item.path))
+    .map((item) => ({
+      ...item,
+      to: `/${slug}/${item.path}`,
+    }));
 }

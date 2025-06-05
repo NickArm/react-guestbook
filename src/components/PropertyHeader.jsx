@@ -16,16 +16,16 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
 
   return (
     <>
-      <header className="bg-primary text-white flex justify-between items-center shadow px-4 py-2">
-        <button className="mobile-menu-button" onClick={() => setMenuOpen((prev) => !prev)}>
+      <header className="relative bg-primary text-white flex justify-between items-center shadow px-4 py-2 z-50">
+        <button className="bg-primary mobile-menu-button" onClick={() => setMenuOpen((prev) => !prev)}>
           <Menu size={24} />
         </button>
         <h1 className="text-lg font-light text-center flex-1">{currentLabel}</h1>
-        <div className="w-6" /> {/* κενό για ισορροπία */}
+        <div className="w-6" />
       </header>
 
       {menuOpen && (
-        <div className="bg-white border-b shadow-sm sm:hidden">
+        <div className="absolute top-[48px] left-0 right-0 bg-white border-b shadow-md z-50 sm:hidden">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
@@ -33,7 +33,7 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
                 `block px-4 py-2 text-sm ${
-                  isActive ? "text-sky-600 font-light" : "text-gray-600"
+                  isActive ? "text-primary font-medium" : "text-gray-700"
                 }`
               }
             >
@@ -42,6 +42,7 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
           ))}
         </div>
       )}
+
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function CheckInPage() {
  return (
     <div className="check-in-page">
       {/* Check-in Section */}
-      <div className="mt-6 bg-gray-100 rounded-lg p-4 flex items-center gap-4">
+      <div className="mt-6 bg-gray-100 p-4 flex items-center gap-4">
         <div className="flex-1">
           <p className="italic text-gray-600">Check-in</p>
           <p className="font-bold text-gray-800">{property.checkin}</p>
@@ -22,7 +22,7 @@ export default function CheckInPage() {
       </div>
 
       {/* Check-out Section */}
-      <div className="mt-4 bg-gray-100 rounded-lg p-4 flex items-center gap-4 flex-row-reverse">
+      <div className="mt-4 bg-gray-100 p-4 flex items-center gap-4 flex-row-reverse">
         <div className="flex-1">
           <p className="italic text-gray-600">Check-out</p>
           <p className="font-bold text-gray-800">{property.checkout}</p>

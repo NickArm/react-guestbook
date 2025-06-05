@@ -12,7 +12,7 @@ export default function TopIconMenu() {
   const menuItems = getEnabledMenuItems(property.enabled_pages);
 
   return (
-    <div className="mt-2 mb-2  flex flex-wrap justify-center gap-2">
+    <div className="p-2  flex flex-wrap justify-center gap-2">
       {menuItems.map(({ path, icon, label }) => (
         <NavLink
           key={path}
