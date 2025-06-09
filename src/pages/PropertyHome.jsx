@@ -1,6 +1,7 @@
 import { getSubdomain } from "../utils/getSubdomain";
 import { useProperty } from "../context/PropertyContext";
 import { getEnabledMenuItems } from "../config/menuConfig";
+import PropertyHeaderSection from "../components/HomeHeader";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const requiredPages = ["welcome", "check-in-out", "location"];
@@ -8,7 +9,7 @@ const requiredPages = ["welcome", "check-in-out", "location"];
 export default function PropertyHome() {
   const slug = getSubdomain();
   const property = useProperty();
-  console.log("PropertyHome - property:", property);
+
   if (!property) {
     return <p className="text-center text-gray-500 mt-10">Loading...</p>;
   }
@@ -19,22 +20,7 @@ export default function PropertyHome() {
   return (
     <div className="home-page px-4 sm:px-6 py-6">
       {/* Header */}
-      <div className="home-page-header grid grid-cols-3 gap-4 items-center mb-6">
-        <div className="flex justify-center">
-          <img
-              src={property.logo_url}
-              alt={`${property.name} Logo`}
-              className="h-20 object-contain max-w-full"
-            />
-        </div>
-        <div className="col-span-2 text-left">
-          <h2 className="text-primary text-xl font-light">WELCOME</h2>
-          <p className="text-gray-500 text-sm">
-            {property.name}<br />
-            {property.location_area}, {property.location_country}
-          </p>
-        </div>
-      </div>
+      <PropertyHeaderSection />
 
       {/* Menu */}
       <div

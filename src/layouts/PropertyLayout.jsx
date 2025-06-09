@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 import TopIconMenu from "../components/TopIconMenu";
-import { usePwaPrompt } from "../utils/usePwaPrompt"; // ✅ import hook
+import { usePwaPrompt } from "../utils/usePwaPrompt"; 
 
 function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
@@ -17,18 +17,29 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
   const isHome = location.pathname === `/${slug}` || location.pathname === `/${slug}/`;
 
   useEffect(() => {
-    if (property?.name) {
-      document.title = property.name;
+  if (property?.name) {
+    document.title = property.name;
+  }
+
+  if (property?.settings?.primary_color) {
+    const primary = property.settings.primary_color;
+
+    // Apply to CSS variable
+    document.documentElement.style.setProperty('--primary-color', primary);
+
+    // Update meta theme-color for mobile browser UI
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", primary);
     }
-    if (property?.settings?.primary_color) {
-      document.documentElement.style.setProperty('--primary-color', property.settings.primary_color);
-    }
-  }, [property]);
+  }
+}, [property]);
+
 
   const filteredNavItems = useMemo(() => {
     if (!property?.enabled_pages) return [];
     return getEnabledMenuItems(property.enabled_pages).map((item) => ({
-      to: `/${slug}/${item.path}`,
+      to: `/${item.path}`,
       label: item.label,
       icon: item.icon,
     }));

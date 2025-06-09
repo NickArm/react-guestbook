@@ -8,7 +8,6 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
   const slug = getSubdomain();
   const location = useLocation();
   const property = useProperty();
-
   const currentPath = location.pathname.replace(`/${slug}`, "") || "/";
   const currentLabel = currentPath === "/"
     ? `Welcome to ${property?.name || ""}`

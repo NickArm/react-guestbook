@@ -1,6 +1,7 @@
 import { useProperty } from "../context/PropertyContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -62,6 +63,15 @@ export default function WelcomePage() {
           className="mt-2 text-sm text-gray-700"
           dangerouslySetInnerHTML={{ __html: property.welcome_message }}
         ></p>
+
+        <div className="mt-6 flex justify-center">
+          <Link
+            to="/check-in-out"
+            className="border border-primary text-primary px-4 py-2 rounded font-medium text-sm hover:bg-primary hover:text-white transition"
+          >
+            Get Arrival Info
+          </Link>
+        </div>
       </div>
     </div>
   );

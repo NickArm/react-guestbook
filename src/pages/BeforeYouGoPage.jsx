@@ -14,11 +14,6 @@ export default function BeforeYouGoPage() {
         className="prose prose-sm max-w-none"
         dangerouslySetInnerHTML={{ __html: property.before_you_go }}
       />
-
-      <button className="mt-6 w-full bg-primary text-white font-semibold text-sm flex items-center justify-between px-4 py-2 rounded shadow">
-        NEED LUGGAGE STORAGE?
-        <FaLock />
-      </button>
     </div>
   );
 }

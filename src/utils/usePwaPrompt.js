@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function usePwaPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isReady, setIsReady] = useState(false);
+  const [isPromptVisible, setIsPromptVisible] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setIsReady(true);
+      setIsPromptVisible(true);
     };
 
     window.addEventListener("beforeinstallprompt", handler);
@@ -19,11 +19,15 @@ export function usePwaPrompt() {
   const promptInstall = async () => {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
+    const result = await deferredPrompt.userChoice;
+    if (result.outcome === "accepted") {
+      console.log("✅ PWA installed by user");
+    } else {
+      console.log("❌ PWA install dismissed");
+    }
+    setIsPromptVisible(false);
     setDeferredPrompt(null);
-    setIsReady(false);
-    return outcome;
   };
 
-  return { isReady, promptInstall };
+  return { isPromptVisible, promptInstall };
 }

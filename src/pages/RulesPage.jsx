@@ -16,9 +16,10 @@ export default function RulesPage() {
           key={index}
           className="bg-gray-100 rounded-lg p-2 flex items-center gap-4"
         >
-          <div className="w-12 h-12 bg-gray-800 text-white flex items-center justify-center rounded-full text-xl font-bold">
+          <div className="min-w-[48px] min-h-[48px] bg-gray-800 text-white flex items-center justify-center rounded-full text-lg font-bold">
             {index + 1}
           </div>
+
           <div>
             <h2 className="font-bold">{rule.title}</h2>
             <p className="text-sm">{rule.description}</p>

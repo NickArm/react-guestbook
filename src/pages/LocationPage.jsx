@@ -21,7 +21,7 @@ export default function LocationPage() {
       {/* Google Map Embed */}
       <div className="mt-4">
         <iframe
-          src={property.google_map_url}
+          src={decodeURIComponent(property.google_map_url)}
           width="100%"
           height="350"
           style={{ border: 0 }}
@@ -31,6 +31,7 @@ export default function LocationPage() {
           title="Google Map"
         ></iframe>
       </div>
+
 
       {/* Description */}
       <div className="mt-6 bg-gray-100 rounded-lg p-4">

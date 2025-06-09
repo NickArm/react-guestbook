@@ -16,8 +16,11 @@ import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
 import TransportationPage from "./pages/TransportationPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
+import RecommendationsPage from "./pages/RecommendationsPage.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { registerSW } from 'virtual:pwa-register'
 
+registerSW({ immediate: true })
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -37,6 +40,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="before-you-go" element={<BeforeYouGoPage />} />
           <Route path="transportation" element={<TransportationPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
+          <Route path="recommendations" element={<RecommendationsPage />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
