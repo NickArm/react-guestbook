@@ -4,7 +4,7 @@ export const allMenuItems = [
   { label: "Welcome", path: "welcome", icon: "fa-house" },
   { label: "Arrival Information", path: "check-in-out", icon: "fa-house-circle-check" },
   { label: "WiFi", path: "wifi", icon: "fa-wifi" },
-  { label: "Amenities", path: "amenities", icon: "fa-couch" },
+  { label: "Amenities & Appliances", path: "amenities", icon: "fa-couch" },
   { label: "Location", path: "location", icon: "fa-location-dot" },
   { label: "Transport", path: "transportation", icon: "fa-bus" },
   { label: "Infos", path: "informations", icon: "fa-circle-info" },
@@ -21,7 +21,7 @@ export const allMenuItems = [
 
 export function getEnabledMenuItems(enabledPages = []) {
   const slug = getSubdomain();
-  const requiredPages = ["welcome", "check-in-out", "location", "blog", "contact", "emergency", "recommendations"];
+  const requiredPages = ["welcome", "check-in-out", "location", "blog", "contact", "emergency",];
   const finalPages = [...new Set([...enabledPages, ...requiredPages])];
 
   return allMenuItems

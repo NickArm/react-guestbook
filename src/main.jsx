@@ -17,6 +17,7 @@ import EmergencyPage from "./pages/EmergencyPage.jsx";
 import TransportationPage from "./pages/TransportationPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
 import RecommendationsPage from "./pages/RecommendationsPage.jsx";
+import AppliancePage from "./pages/AppliancePage.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { registerSW } from 'virtual:pwa-register'
 
@@ -41,7 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="transportation" element={<TransportationPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
           <Route path="recommendations" element={<RecommendationsPage />} />
-
+          <Route path="/appliances/:id" element={<AppliancePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

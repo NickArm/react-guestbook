@@ -3,6 +3,7 @@ import { useProperty } from "../context/PropertyContext";
 
 export default function CheckInPage() {
   const property = useProperty();
+   const navigate = useNavigate();
 
   return (
     <div className="check-in-page">

@@ -9,7 +9,12 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icons/192.png', 'icons/512.png'],
+      includeAssets: [
+        'favicon.ico',
+        'apple-touch-icon.png',
+        'icons/android/android-launcher-icon-192-192.png',
+        'icons/android/android-launcher-icon-512-512.png'
+      ],
       manifest: {
         name: 'Welcomy Guide App',
         short_name: 'Welcomy',
@@ -21,12 +26,33 @@ export default defineConfig({
         scope: '/',
         icons: [
           {
-            src: 'icons/192.png',
-            sizes: '192x192',
+            src: 'icons/android/android-launcher-icon-48-48.png',
+            sizes: '48x48',
             type: 'image/png'
           },
           {
-            src: 'icons/512.png',
+            src: 'icons/android/android-launcher-icon-72-72.png',
+            sizes: '72x72',
+            type: 'image/png'
+          },
+          {
+            src: 'icons/android/android-launcher-icon-96-96.png',
+            sizes: '96x96',
+            type: 'image/png'
+          },
+          {
+            src: 'icons/android/android-launcher-icon-144-144.png',
+            sizes: '144x144',
+            type: 'image/png'
+          },
+          {
+            src: 'icons/android/android-launcher-icon-192-192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
+          {
+            src: 'icons/android/android-launcher-icon-512-512.png',
             sizes: '512x512',
             type: 'image/png'
           }
