@@ -35,39 +35,6 @@ export default function AmenitiesPage() {
           </button>
         ))}
       </div>
-
-
-      {/* Swiper Gallery */}
-      {property.gallery && property.gallery.length > 0 ? (
-        <div className="mt-6 rounded overflow-hidden">
-          <Swiper
-            spaceBetween={10}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            navigation
-            modules={[Navigation, Pagination]}
-            className="rounded-lg"
-          >
-            {property.gallery.map((url, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  src={`${url.replace("/upload/", "/upload/w_900/")}`}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-auto object-cover rounded-lg"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      ) : (
-        <div className="mt-6">
-          <img
-            src="/assets/images/default-image.jpg"
-            className="w-full rounded-lg"
-            alt="Living room"
-          />
-        </div>
-      )}
     </div>
   );
 }

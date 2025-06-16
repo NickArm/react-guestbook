@@ -5,8 +5,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),
     react(),
+    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
@@ -18,6 +18,7 @@ export default defineConfig({
       manifest: {
         name: 'Welcomy Guide App',
         short_name: 'Welcomy',
+        version: '0.9.0',
         description: 'Digital Welcome Book for Guests',
         theme_color: '#55818e',
         background_color: '#ffffff',

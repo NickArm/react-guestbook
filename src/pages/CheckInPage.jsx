@@ -1,5 +1,6 @@
 import { FaCircleCheck, FaPersonWalkingArrowRight } from "react-icons/fa6";
 import { useProperty } from "../context/PropertyContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckInPage() {
   const property = useProperty();

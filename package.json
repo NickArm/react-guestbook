@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:analyze": "cross-env ANALYZE=true vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -28,12 +29,14 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "json-server": "^1.0.0-beta.3",
     "postcss": "^8.5.3",
+    "rollup-plugin-visualizer": "^6.0.3",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5",
     "vite-plugin-pwa": "^1.0.0"
