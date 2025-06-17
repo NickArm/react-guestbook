@@ -12,7 +12,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
   const location = useLocation();
   const property = useProperty();
-  const { isPromptVisible, promptInstall } = usePwaPrompt(); // ✅ use the hook
+  const { isPromptVisible, promptInstall } = usePwaPrompt();
 
   const isHome = location.pathname === `/${slug}` || location.pathname === `/${slug}/`;
 
@@ -46,7 +46,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
   }, [property, slug]);
 
   return (
-    <div className="min-h-screen flex flex-col pb-14">
+    <div className="min-h-screen flex flex-col pb-20">
       {!isHome && (
         <>
           <PropertyHeader
@@ -61,10 +61,12 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0 }}          
+          animate={{ opacity: 1 }}          
+          transition={{ 
+            duration: 0.4,                   
+            ease: "easeOut"                  
+          }}
           className="flex-1"
         >
           <Outlet />
@@ -83,7 +85,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
             onClick={promptInstall}
             className="mt-2 px-3 py-1 bg-[#55818e] text-white text-sm rounded w-full"
           >
-            Εγκατάσταση
+            Install
           </button>
         </div>
       )}

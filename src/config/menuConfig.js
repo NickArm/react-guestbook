@@ -15,13 +15,14 @@ export const allMenuItems = [
   { label: "FAQ", path: "faq", icon: "fa-circle-question" },
   { label: "Emergency", path: "emergency", icon: "fa-triangle-exclamation" },
   { label: "Before you go", path: "before-you-go", icon: "fa-suitcase-rolling" },
+  { label: "Review Us", path: "review", icon: "fa-star"},
   { label: "The Host", path: "contact", icon: "fa-user" },
 
 ];
 
 export function getEnabledMenuItems(enabledPages = []) {
   const slug = getSubdomain();
-  const requiredPages = ["welcome", "check-in-out", "location", "blog", "contact", "emergency",];
+  const requiredPages = ["welcome", "check-in-out", "location", "contact", "emergency", "review"];
   const finalPages = [...new Set([...enabledPages, ...requiredPages])];
 
   return allMenuItems

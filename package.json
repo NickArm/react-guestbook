@@ -1,14 +1,15 @@
 {
   "name": "myguide-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.7.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node -e \"const pkg=require('./package.json'); fs.writeFileSync('dist/version.json', JSON.stringify({version: pkg.version, timestamp: new Date().toISOString()}))\"",
     "build:analyze": "cross-env ANALYZE=true vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && echo 'Build completed with version info'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

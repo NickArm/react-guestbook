@@ -22,6 +22,7 @@ export default {
     "fa-phone",
     'text-primary',
     'bg-primary',
+    'border-primary',
   ],
   theme: {
     extend: {

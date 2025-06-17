@@ -5,6 +5,7 @@ import "./index.css";
 import PropertyLayout from "./layouts/PropertyLayout.jsx";
 import PropertyHome from "./pages/PropertyHome.jsx";
 import WelcomePage from "./pages/WelcomePage.jsx";
+import ReviewPage from "./pages/ReviewPage.jsx";
 import WifiPage from "./pages/WifiPage.jsx";
 import AmenitiesPage from "./pages/AmenitiesPage.jsx";
 import LocationPage from "./pages/LocationPage.jsx";
@@ -41,6 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="before-you-go" element={<BeforeYouGoPage />} />
           <Route path="transportation" element={<TransportationPage />} />
           <Route path="emergency" element={<EmergencyPage />} />
+          <Route path="review" element={<ReviewPage />} />
           <Route path="recommendations" element={<RecommendationsPage />} />
           <Route path="/appliances/:id" element={<AppliancePage />} />
         </Route>

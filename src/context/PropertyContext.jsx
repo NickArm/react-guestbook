@@ -27,24 +27,27 @@ export function PropertyProvider({ children }) {
       });
   }, []);
 
+  if (loading) {
+    return <p className="text-center mt-10 text-gray-500">Loading...</p>;
+  }
+
+  if (!property) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <h1 className="text-2xl font-bold text-primary mb-2">Oops!</h1>
+        <p className="text-gray-600 mb-4">
+          Δεν εντοπίστηκε κάποιο κατάλυμα. Παρακαλώ ελέγξτε το URL (π.χ. <code>lias-apartment.welcomy.net</code>).
+        </p>
+      </div>
+    );
+  }
+
 return (
   <PropertyContext.Provider value={property}>
-    {!loading ? (
-      property ? (
-        children
-      ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-          <h1 className="text-2xl font-bold text-primary mb-2">Oops!</h1>
-          <p className="text-gray-600 mb-4">
-            Δεν εντοπίστηκε κάποιο κατάλυμα. Παρακαλώ ελέγξτε το URL (π.χ. <code>lias-apartment.welcomy.net</code>).
-          </p>
-        </div>
-      )
-    ) : (
-      <p className="text-center mt-10 text-gray-500">Loading...</p>
-    )}
+    {children}
   </PropertyContext.Provider>
 );
+
 
 }
 
