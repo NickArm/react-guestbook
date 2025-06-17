@@ -18,7 +18,7 @@ export default defineConfig({
       manifest: {
         name: 'Welcomy Guide App',
         short_name: 'Welcomy',
-        version: '0.9.5',
+        version: '0.7.2',
         description: 'Digital Welcome Book for Guests',
         theme_color: '#55818e',
         background_color: '#ffffff',

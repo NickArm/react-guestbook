@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<PropertyLayout />}>
           <Route index element={<PropertyHome />} />
           <Route path="welcome" element={<WelcomePage />} />
-          <Route path="check-in-out" element={<CheckInPage />} />
+          <Route path="checkin" element={<CheckInPage />} />
           <Route path="amenities" element={<AmenitiesPage />} />
           <Route path="wifi" element={<WifiPage />} />
           <Route path="location" element={<LocationPage />} />

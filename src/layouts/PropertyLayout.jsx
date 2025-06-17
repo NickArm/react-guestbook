@@ -79,11 +79,11 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
       {isPromptVisible && (
         <div className="fixed bottom-4 right-4 bg-white border border-gray-300 shadow-lg px-4 py-3 rounded-lg z-50 max-w-[260px]">
           <p className="text-sm text-gray-800">
-            Θέλετε να εγκαταστήσετε την εφαρμογή στο κινητό σας;
+            Do you want to install the app to your device?
           </p>
           <button
             onClick={promptInstall}
-            className="mt-2 px-3 py-1 bg-[#55818e] text-white text-sm rounded w-full"
+            className="mt-2 px-3 py-1 bg-primary text-white text-sm rounded w-full"
           >
             Install
           </button>

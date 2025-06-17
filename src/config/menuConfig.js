@@ -2,7 +2,7 @@ import { getSubdomain } from "../utils/getSubdomain";
 
 export const allMenuItems = [
   { label: "Welcome", path: "welcome", icon: "fa-house" },
-  { label: "Arrival Information", path: "check-in-out", icon: "fa-house-circle-check" },
+  { label: "Arrival Information", path: "checkin", icon: "fa-house-circle-check" },
   { label: "WiFi", path: "wifi", icon: "fa-wifi" },
   { label: "Amenities & Appliances", path: "amenities", icon: "fa-couch" },
   { label: "Location", path: "location", icon: "fa-location-dot" },
@@ -22,7 +22,7 @@ export const allMenuItems = [
 
 export function getEnabledMenuItems(enabledPages = []) {
   const slug = getSubdomain();
-  const requiredPages = ["welcome", "check-in-out", "location", "contact", "emergency", "review"];
+  const requiredPages = ["welcome", "contact", "emergency"];
   const finalPages = [...new Set([...enabledPages, ...requiredPages])];
 
   return allMenuItems

@@ -27,7 +27,6 @@ export default function PropertyHeaderSection() {
     </div>
   ) : (
     <div className="relative bg-white border border-gray-200 rounded-xl p-4 mb-4 shadow-sm">
-      {/* Simplified decorative dots */}
       <div className="absolute top-3 right-3 flex gap-1 opacity-20">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="w-1.5 h-1.5 bg-primary rounded-full"></div>
@@ -35,12 +34,10 @@ export default function PropertyHeaderSection() {
       </div>
      
       <div className="relative pr-12">
-        {/* Property initial circle - absolute positioned */}
         <div className="absolute top-0 right-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold shadow-sm">
           {property.name?.charAt(0)?.toUpperCase() || 'W'}
         </div>
        
-        {/* Main content - no extra spacing */}
         <div className="pr-2">
           <h2 className="text-gray-800 text-lg font-semibold mb-1.5 leading-tight">
             {property.name}
