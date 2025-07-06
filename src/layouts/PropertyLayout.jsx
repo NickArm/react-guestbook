@@ -38,7 +38,7 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
 
   const filteredNavItems = useMemo(() => {
     if (!property?.enabled_pages) return [];
-    return getEnabledMenuItems(property.enabled_pages).map((item) => ({
+    return getEnabledMenuItems(property.enabled_pages, property).map((item) => ({
       to: `/${item.path}`,
       label: item.label,
       icon: item.icon,

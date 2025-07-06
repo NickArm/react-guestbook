@@ -46,6 +46,45 @@ export default function CheckInPage() {
         </div>
         <FaPersonWalkingArrowRight className="w-12 h-12 text-primary" />
       </div>
+
+      {/* Check-in Video */}
+      {property.checkin_video && (
+        <div className="mt-4 bg-gray-100 p-4 flex items-center gap-4 flex-row-reverse">
+          <div className="flex-1">
+            <div>
+              <h3 className="italic text-gray-600">Check-in Instructions</h3>
+              <div className="w-full h-64 rounded">
+                <iframe
+                  className="w-full h-full rounded"
+                  src={property.checkin_video.replace("watch?v=", "embed/")}
+                  title="Check-in Video"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+      {/* Check-out Video */}
+      {property.checkout_video && (
+        <div className="mt-4 bg-gray-100 p-4 flex items-center gap-4 flex-row-reverse">
+          <div className="flex-1">
+            <div className="mt-6">
+              <h3 className="italic text-gray-600">Check-out Instructions</h3>
+              <div className="w-full h-64 rounded">
+                <iframe
+                  className="w-full h-full rounded"
+                  src={property.checkout_video.replace("watch?v=", "embed/")}
+                  title="Check-out Video"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

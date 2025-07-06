@@ -17,6 +17,7 @@ import FaqPage from "./pages/FaqPage.jsx";;
 import EmergencyPage from "./pages/EmergencyPage.jsx";
 import TransportationPage from "./pages/TransportationPage.jsx";
 import CheckInPage from "./pages/CheckInPage.jsx";
+import HouseGuidesPage from "./pages/HouseGuidesPage.jsx";
 import RecommendationsPage from "./pages/RecommendationsPage.jsx";
 import AppliancePage from "./pages/AppliancePage.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -44,6 +45,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="emergency" element={<EmergencyPage />} />
           <Route path="review" element={<ReviewPage />} />
           <Route path="recommendations" element={<RecommendationsPage />} />
+          <Route path="/house-guides" element={<HouseGuidesPage />} />
           <Route path="/appliances/:id" element={<AppliancePage />} />
         </Route>
       </Routes>
