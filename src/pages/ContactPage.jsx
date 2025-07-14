@@ -6,12 +6,9 @@ export default function ContactPage() {
   
   // Replace this with: const property = useProperty(); when using in your app
   const property = useProperty();
-  const owner = property?.owner;
+  const host = property?.host;
 
-  console.log("Owner data:", owner);
-  console.log("Property data:", property);
-
-  if (!property || !owner) {
+  if (!property || !host) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
@@ -78,8 +75,8 @@ export default function ContactPage() {
             <div className="relative bg-white p-2 rounded-full shadow-xl">
               <div className={`w-32 h-32 rounded-full overflow-hidden transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <img
-                  src={owner.photo || "/assets/images/user-image.jpeg"}
-                  alt={owner.name}
+                  src={host.photo || "/assets/images/user-image.jpeg"}
+                  alt={host.name}
                   className="w-full h-full object-cover"
                   onLoad={() => setImageLoaded(true)}
                 />
@@ -108,19 +105,19 @@ export default function ContactPage() {
               
               <div className="flex-1">
                 <blockquote className="text-gray-700 text-lg leading-relaxed italic mb-4">
-                  "{owner.message || "Please do not hesitate to contact me with any questions during your stay."}"
+                  "{host.message || "Please do not hesitate to contact me with any questions during your stay."}"
                 </blockquote>
                 
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full overflow-hidden">
                     <img
-                      src={owner.photo || "/assets/images/user-image.jpeg"}
-                      alt={owner.name}
+                      src={host.photo || "/assets/images/user-image.jpeg"}
+                      alt={host.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800 text-lg font-handwritten">{owner.name}</p>
+                    <p className="font-bold text-gray-800 text-lg font-handwritten">{host.name}</p>
                     <p className="text-sm text-gray-500">Your Host</p>
                   </div>
                 </div>
@@ -136,7 +133,7 @@ export default function ContactPage() {
             <p className="text-gray-600">Choose your preferred way to contact me</p>
           </div>
 
-          {(owner.contacts || []).map((contact, i) => {
+          {(host.contacts || []).map((contact, i) => {
             const isLink = !!contact.url;
             const description = getContactDescription(contact.type);
             

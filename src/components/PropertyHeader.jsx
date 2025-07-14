@@ -3,16 +3,20 @@ import { NavLink, useLocation } from "react-router-dom";
 import { getSubdomain } from "../utils/getSubdomain";
 import { useProperty } from "../context/PropertyContext";
 import { allMenuItems } from "../config/menuConfig";
+import useAddToHomeScreenPrompt from "../hooks/useAddToHomeScreenPrompt";
+import { Download } from "lucide-react";
+
 
 export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
   const slug = getSubdomain();
   const location = useLocation();
   const property = useProperty();
+  const [deferredPrompt, promptToInstall] = useAddToHomeScreenPrompt();
   const currentPath = location.pathname.replace(`/${slug}`, "") || "/";
   const currentLabel = currentPath === "/"
     ? `Welcome to ${property?.name || ""}`
     : allMenuItems.find((item) => `/${item.path}` === currentPath)?.label || "";
-
+console.log("deferredPrompt", deferredPrompt);
   return (
     <>
       <header className="relative bg-primary text-white flex justify-between items-center shadow px-4 py-2 z-50">
@@ -20,7 +24,18 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
           <Menu size={24} />
         </button>
         <h1 className="text-lg font-light text-center flex-1">{currentLabel}</h1>
-        <div className="w-6" />
+        
+        <div className="w-6 flex justify-end">
+          {deferredPrompt && (
+          <button
+            onClick={promptToInstall}
+            className="text-white hover:text-gray-200"
+            title="Add to Home Screen"
+          >
+            <Download size={20} />
+          </button>
+          )}
+        </div>
       </header>
 
       {menuOpen && (

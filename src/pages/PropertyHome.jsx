@@ -15,30 +15,47 @@ export default function PropertyHome() {
   }
 
   const enabledPages = [...new Set([...(property.enabled_pages || []), ...requiredPages])];
-  const menuItems = getEnabledMenuItems(enabledPages);
+  const menuItems = getEnabledMenuItems(property?.enabled_pages, property);
+
+  const primaryItems = menuItems.filter(item => item.group === "primary");
+  const secondaryItems = menuItems.filter(item => item.group === "secondary");
+
 
   return (
-    <div className="home-page px-4 sm:px-6 py-6">
-      {/* Header */}
-      <PropertyHeaderSection />
-
-      {/* Menu */}
-      <div
-        id="homegrid"
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6"
-      >
-        {menuItems.map(({ icon, label, path }) => (
-          <div key={path} className="flex flex-col items-center text-gray-700 text-xs">
-            <a
-              href={`/${path}`}
-              className="bg-[#dce6e8] flex items-center justify-center w-16 h-16 rounded-lg"
-            >
-              <i className={`fa-solid ${icon} text-primary text-2xl`}></i>
-            </a>
-            <p className="text-[13px] text-center mt-2">{label}</p>
-          </div>
-        ))}
+<div className="home-page">
+  <PropertyHeaderSection />
+  
+<div className="mb-8">
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 items-start">
+    {primaryItems.map(({ icon, label, path }) => (
+      <div key={path} className="flex flex-col items-center text-gray-700 text-xs">
+        <a href={`/${path}`} className="bg-[#dce6e8] flex items-center justify-center w-16 h-16 rounded-lg">
+          <i className={`fa-solid ${icon} text-primary text-2xl`}></i>
+        </a>
+        <p className="text-[13px] text-center mt-2">{label}</p>
       </div>
+    ))}
+  </div>
+</div>
+
+{/* Secondary Section */}
+{secondaryItems.length > 0 && (
+  <div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 items-start">
+      <h2 className="text-primary text-center text-l font-light col-span-full">Useful Information</h2>
+      {secondaryItems.map(({ icon, label, path }) => (
+        <div key={path} className="flex flex-col items-center text-gray-700 text-xs">
+          <a href={`/${path}`} className="bg-[#dce6e8] flex items-center justify-center w-16 h-16 rounded-lg">
+            <i className={`fa-solid ${icon} text-primary text-2xl`}></i>
+          </a>
+          <p className="text-[13px] text-center mt-2">{label}</p>
+        </div>
+      ))}
     </div>
+  </div>
+)}
+
+</div>
+
   );
 }

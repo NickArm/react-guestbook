@@ -22,7 +22,7 @@ export default function AmenitiesPage() {
       />
         {property.appliances && property.appliances.length > 0 && (
           <div className="mt-8 space-y-3">
-            <h2 className="text-lg font-semibold">Appliances</h2>
+            <h2 className="text-lg font-semibold">Appliances Instructions</h2>
             {property.appliances.map((appliance) => (
               <button
                 key={appliance.id}

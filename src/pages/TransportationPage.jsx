@@ -21,7 +21,7 @@ export default function TransportationPage() {
         </div>
       ))}
 
-      {/* Static Private Transfer Section */}
+      {/* Static Private Transfer Section
       <div className="mt-6 text-center">
         <h2 className="font-bold text-lg mt-6">PRIVATE TRANSFER</h2>
         <p className="text-sm mt-1">
@@ -35,16 +35,16 @@ export default function TransportationPage() {
             Contact our transfer partner
           </a>
         </p>
-      </div>
+      </div> */}
 
-      {/* Airport Info */}
+      {/* Airport Info
       <div className="mt-6 bg-gray-100 rounded-lg p-4 text-gray-800">
         <div className="flex items-center gap-3">
           <i className="fa-solid fa-plane text-3xl"></i>
           <h3 className="font-bold">Ioannis Kapodistrias International Airport</h3>
         </div>
         <p className="text-sm mt-2">10 min by car or taxi</p>
-      </div>
+      </div> */}
     </div>
   );
 }
