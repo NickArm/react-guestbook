@@ -25,10 +25,11 @@ export default defineConfig({
       manifest: {
         name: 'Welcomy Guide App',
         short_name: 'Welcomy',
-        version: '0.7.9',
+        version: '0.8.1',
         description: 'Digital Welcome Book for Guests',
         theme_color: '#55818e',
         background_color: '#ffffff',
+        orientation: "portrait",
         display: 'standalone',
         start_url: '/',
         scope: '/',
@@ -57,13 +58,13 @@ export default defineConfig({
             src: 'icons/android/android-launchericon-192-192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any, maskable'
           },
           {
             src: 'icons/android/android-launchericon-512-512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any, maskable'
           }
         ]
       }

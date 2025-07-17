@@ -1,5 +1,6 @@
 import { usePwaPrompt } from "./utils/usePwaPrompt";
 import { UpdateManager } from "./components/UpdateManager";
+
 import './App.css'
 
 const App = () => {

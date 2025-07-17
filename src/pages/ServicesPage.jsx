@@ -39,14 +39,16 @@ export default function ServicesPage() {
 
                   {service.url && (
                     <div className="mt-3">
-                      <a
+                    <a
                         href={service.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent("click_service_link", "Services", service.title)}
                         className="inline-block mt-3 bg-primary text-white text-xs px-3 py-1.5 rounded-md shadow hover:bg-primary-dark transition"
                         >
                         Learn More
-                        </a>
+                    </a>
+
                     </div>
                   )}
                 </div>

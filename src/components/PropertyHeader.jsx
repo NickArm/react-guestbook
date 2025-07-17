@@ -16,7 +16,6 @@ export default function PropertyHeader({ menuOpen, setMenuOpen, navItems }) {
   const currentLabel = currentPath === "/"
     ? `Welcome to ${property?.name || ""}`
     : allMenuItems.find((item) => `/${item.path}` === currentPath)?.label || "";
-console.log("deferredPrompt", deferredPrompt);
   return (
     <>
       <header className="relative bg-primary text-white flex justify-between items-center shadow px-4 py-2 z-50">

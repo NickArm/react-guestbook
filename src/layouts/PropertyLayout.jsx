@@ -7,6 +7,7 @@ import PropertyHeader from "../components/PropertyHeader";
 import BottomNavBar from "../components/BottomNavBar";
 import TopIconMenu from "../components/TopIconMenu";
 import { usePwaPrompt } from "../utils/usePwaPrompt"; 
+import { initGA } from "../utils/gtag";
 
 function LayoutContent({ menuOpen, setMenuOpen }) {
   const { slug } = useParams();
@@ -15,6 +16,12 @@ function LayoutContent({ menuOpen, setMenuOpen }) {
   const { isPromptVisible, promptInstall } = usePwaPrompt();
 
   const isHome = location.pathname === `/${slug}` || location.pathname === `/${slug}/`;
+
+  useEffect(() => {
+    if (property?.settings?.ga_tracking_id) {
+      initGA(property.settings.ga_tracking_id);
+    }
+  }, [property]);
 
   useEffect(() => {
   if (property?.name) {
